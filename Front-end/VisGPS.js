@@ -41,10 +41,12 @@ const VisGPS = (props) => {
       </Text>
       <Button title="Mostrar Mapa" onPress={getLocation} />
       <TouchableOpacity style={{backgroundColor: 'blue', marginTop: 10, borderRadius: 30, height: 50,width:150}}
-      onPress={()=> props.navigation.navigate('VMapaDir', {
+
+
+onPress={()=> props.navigation.navigate('VMapa', {
         lat: parseFloat(location.latitude), 
         lon: parseFloat(location.longitude)})}>
-          <Text style={{fontSize: 20, fontWeight: 'bold', color:'white', margin: 'auto'}}>Mostrar Mapa</Text>
+        <Text style={{ fontSize: 20, fontWeight: 'bold', color:'white', textAlign: 'center' }}></Text>  
       </TouchableOpacity>
     </View>
   );

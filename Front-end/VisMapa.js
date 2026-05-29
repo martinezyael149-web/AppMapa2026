@@ -6,20 +6,17 @@ import { Text } from 'react-native-elements';
 //import MapView from 'react-native-maps'
 import MapView, { Marker } from "react-native-maps";
 
-const VisMapa = (navigation) =>{ 
+const VisMapa = ({ route, navigation }) => {
 
-    const [region, setRegion] = useState({
-        latitude: navigation.route.params.lat,
-        longitude: navigation.route.params.lon,
-        latitudeDelta: 0.01,
-        longitudeDelta: 0.01,
-      });
+   const [region, setRegion] = useState({
 
-      useEffect (() => {
-        setRegion
-      }, [navigation ]);  
-         
-      
+    latitude: route.params.lat,
+    longitude: route.params.lon,
+    latitudeDelta: 0.01,
+    longitudeDelta: 0.01,
+
+  });
+   
     return (
         <MapView
         style={{ flex: 1 }}
@@ -27,8 +24,8 @@ const VisMapa = (navigation) =>{
         onRegionChangeComplete={region => setRegion(region)}
       >
         <Marker coordinate={{ 
-          latitude:navigation.route.params.latitude, 
-          longitude:navigation.route.params.longitude }} />
+          latitude:route.params.lat, 
+          longitude:route.params.lon }} />
       </MapView>
     );
   };
